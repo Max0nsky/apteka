@@ -109,24 +109,20 @@ $this->title = 'My Yii Application';
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-
-                                        <?= Html::img("@web/images/medicines/{$thing->img}", ['alt' => $thing->drug_name]) ?>
+                                        <a href="<?= \yii\helpers\Url::to(['product/view', 'drug_name' => $thing->drug_name]) ?>">
+                                            <?= Html::img("@web/images/medicines/{$thing->img}", ['alt' => $thing->drug_name]) ?>
+                                        </a>
                                         <h2><?= $thing->price ?>Р</h2>
-                                        <p><?= $thing->drug_name ?></p>
+                                        <p><a href="<?= \yii\helpers\Url::to(['product/view', 'drug_name' => $thing->drug_name]) ?>"><?= $thing->drug_name ?></a></p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Добавить в корзину</a>
                                     </div>
-                                </div>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Добавиь в избранное</a></li>
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Добавить в сравнение</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
                         <p>
-                            <?php $i++; if ($i % 3 == 0) : ?>
-                            <div class="clearfix"></div>
+                            <?php $i++;
+                                if ($i % 3 == 0) : ?>
+                                <div class="clearfix"></div>
                             <?php endif; ?>
                         <?php endforeach; ?>
                         <div class="clearfix"></div>

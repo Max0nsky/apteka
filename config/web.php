@@ -51,6 +51,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'product/<drug_name:\d+>' => 'product/view',
             ],
         ],
         
