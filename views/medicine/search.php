@@ -79,7 +79,7 @@ $this->title = 'Аптека';
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
-                        <h2>Реклама</h2>
+                    <h2>Реклама</h2>
                     <div class="shipping text-center">
                         <!--shipping-->
                         <img src="/images/home/shipping.jpg" alt="" />
@@ -91,37 +91,40 @@ $this->title = 'Аптека';
             <div class="col-sm-9 padding-right">
                 <div class="features_items">
                     <!--features_items-->
-                    <h2 class="title text-center">Товары</h2>
-
-                    <?php $i = 0;
-                    foreach ($things as $thing) : ?>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="<?= \yii\helpers\Url::to(['product/view', 'drug_name' => $thing->drug_name]) ?>">
-                                            <?= Html::img("@web/images/medicines/{$thing->img}", ['alt' => $thing->drug_name]) ?>
-                                        </a>
-                                        <h2><?= $thing->price ?>Р</h2>
-                                        <p><a href="<?= \yii\helpers\Url::to(['product/view', 'drug_name' => $thing->drug_name]) ?>"><?= $thing->drug_name ?></a></p>
-                                        <a href="<?= \yii\helpers\Url::to(['medicine/purchase', 'drug_name' => $thing->drug_name])?>" data-drug_name="<?=$thing->drug_name?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Купить</a>
+                    <h2 class="title text-center">Поиск по запросу: <?= Html::encode($search) ?></h2>
+                    <?php if (!empty($things)) : ?>
+                        <?php $i = 0;
+                            foreach ($things as $thing) : ?>
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <a href="<?= \yii\helpers\Url::to(['product/view', 'drug_name' => $thing->drug_name]) ?>">
+                                                <?= Html::img("@web/images/medicines/{$thing->img}", ['alt' => $thing->drug_name]) ?>
+                                            </a>
+                                            <h2><?= $thing->price ?>Р</h2>
+                                            <p><a href="<?= \yii\helpers\Url::to(['product/view', 'drug_name' => $thing->drug_name]) ?>"><?= $thing->drug_name ?></a></p>
+                                            <a href="<?= \yii\helpers\Url::to(['medicine/purchase', 'drug_name' => $thing->drug_name])?>" data-drug_name="<?=$thing->drug_name?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Купить</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <p>
-                            <?php $i++;
-                                if ($i % 3 == 0) : ?>
-                                <div class="clearfix"></div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <div class="clearfix"></div>
-                        <?php
-                        echo \yii\widgets\LinkPager::widget([
-                            'pagination' => $pages,
-                        ]);
-                        ?>
-                        </p>
+                            <p>
+                                <?php $i++;
+                                        if ($i % 3 == 0) : ?>
+                                    <div class="clearfix"></div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            <div class="clearfix"></div>
+                            <?php
+                                echo \yii\widgets\LinkPager::widget([
+                                    'pagination' => $pages,
+                                ]);
+                                ?>
+                            </p>
+                        <?php else : ?>
+                            <h2>Ничего не найдено...</h2>
+                        <?php endif ?>
                 </div>
                 <!--features_items-->
             </div>

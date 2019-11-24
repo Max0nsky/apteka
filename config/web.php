@@ -52,6 +52,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'product/<drug_name:\d+>' => 'product/view',
+                'search' => 'medicine/search',
             ],
         ],
         

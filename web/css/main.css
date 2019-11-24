@@ -1165,17 +1165,20 @@ h2.title {
   margin-top: 10px;
 }
 
-
+.col-sm-5{
+  height: 200px;
+  width: 100%;
+}
 
 .view-product {
   position: relative;
+  
 }
 
 .view-product img {
   border: 1px solid #F7F7F0;
-  /*height: 380px;*/
-  height: 150%;
-  width: 150%;
+  /*height: 380px;
+  width: 100%;*/
 }
 
 .view-product h3 {
@@ -2520,5 +2523,3 @@ h2.title {
 .contact-info .social-networks ul li a:hover{
   color: #FE980F;
 }
-
-

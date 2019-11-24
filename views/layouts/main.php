@@ -3,7 +3,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use app\widgets\Alert;
 use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
 
@@ -147,9 +151,11 @@ ltAppAsset::register($this);
 						</div>
 					</div>
 					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Поиск" />
-						</div>
+						<form method="get" action="<?= \yii\helpers\Url::to(['medicine/search'])?>">
+							<div class="search_box pull-right">
+								<input type="text" placeholder="Поиск" name="search">
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

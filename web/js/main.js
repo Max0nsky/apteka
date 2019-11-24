@@ -1,10 +1,28 @@
 /*price range*/
 
- $('#sl2').slider();
+ $('#sl2').slider();	
 
+	/*$('.add-to-cart').on('click', function(e) {
+		e.preventDefault();
+		var drug_name = $(this).data('drug_name');
+		$.ajax({
+			url: '/cart/add',
+			data: {drug_name: drug_name},
+			type: 'GET',
+			success: function(res){
+				console.log(res);
+			},
+			error: function(){
+				alert('Error!');
+			}
+		});
+	});*/
+	$('.add-to-cart').on('click', function(){
+		alert('TEST!!!!!');
+	});
 	var RGBChange = function() {
-	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
-	};	
+		$('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
+	  };
 		
 /*scroll to top*/
 
