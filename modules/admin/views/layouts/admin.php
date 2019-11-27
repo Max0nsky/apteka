@@ -10,7 +10,6 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
-use yii\helpers\Url;
 
 AppAsset::register($this);
 ltAppAsset::register($this);
@@ -25,7 +24,7 @@ ltAppAsset::register($this);
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->registerCsrfMetaTags() ?>
-	<title><?= Html::encode($this->title) ?></title>
+	<title>Админка <?= Html::encode($this->title) ?></title>
 	<?php $this->head() ?>
 	<link rel="shortcut icon" href="images/ico/favicon.ico">
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -100,12 +99,12 @@ ltAppAsset::register($this);
 						</div>
 					</div>
 					<div class="col-sm-8">
-						<div class="shop-menu pull-right">
+					<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<?php if(!Yii::$app->user->isGuest):?>
 								<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i><?=Yii::$app->user->identity['username']?> (Выход)</a></li>
 								<?php endif;?>
-								<li><a href="<?=\yii\helpers\Url::to(['/admin'])?>"><i class="fa fa-lock"></i> Войти</a></li>
+								<li><a href="login.html"><i class="fa fa-lock"></i> Войти</a></li>
 							</ul>
 						</div>
 					</div>

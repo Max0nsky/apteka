@@ -25,7 +25,7 @@ $this->title = $product[0]['drug_name'];
 				<div class="product-details">
 					<!--product-details-->
 					<div class="col-sm-5">
-						<div class="view-product" style="height: 225px; width: 225px;">
+						<div class="view-product">
 							<?= Html::img("@web/images/medicines/{$product[0]['img']}", ['alt' => $product->drug_name]) ?>
 						</div>
 					</div>

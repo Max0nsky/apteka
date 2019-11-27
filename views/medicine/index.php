@@ -88,9 +88,12 @@ $this->title = 'Аптека';
                 </div>
             </div>
 
+            <?php debug(Yii::$app->user->identity)?>
+
             <div class="col-sm-9 padding-right">
                 <div class="features_items">
                     <!--features_items-->
+                    
                     <h2 class="title text-center">Товары</h2>
 
                     <?php $i = 0;
