@@ -73,7 +73,7 @@ ltAppAsset::register($this);
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="/images/home/logo.png" alt="" /></a>
+							<a href="/"><img src="/images/home/logo.png" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
@@ -130,7 +130,7 @@ ltAppAsset::register($this);
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="/" class="active">Главная</a></li>
-								<li class="dropdown"><a href="#">Магазин<i class="fa fa-angle-down"></i></a>
+								<!--<li class="dropdown"><a href="#">Магазин<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
 										<li><a href="shop.html">Товары</a></li>
 										<li><a href="product-details.html">Детально</a></li>
@@ -144,9 +144,10 @@ ltAppAsset::register($this);
 										<li><a href="blog.html">Список новостей</a></li>
 										<li><a href="blog-single.html">Новость</a></li>
 									</ul>
-								</li>
-								<li><a href="404.html">404</a></li>
+								</li>-->
+								<li><a href="404.html">Склады</a></li>
 								<li><a href="contact-us.html">Контакты</a></li>
+								<li><a href="404.html">404</a></li>
 							</ul>
 						</div>
 					</div>

@@ -23,39 +23,42 @@ $this->title = 'Аптека';
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free E-Commerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                <h1><span>А</span>птека</h1>
+                                <h2>Скоро зима!</h2>
+                                <p>Витамины Алфавит — это одни из наиболее известных и популярных витаминных комплексов. Их представлено много комбинаций для разных возрастов, для разных целей (профилактическая, лечебная и другое), для некоторых видов деятельности (спорт, учеба), для косметических целей.</p>
+                                <a href="<?= \yii\helpers\Url::to(['product/view', 'drug_name' => 'Алфавит']) ?>">
+                                    <button type="button" class="btn btn-default get">Подробнее</button>
+                                </a>
                             </div>
                             <div class="col-sm-6">
-                                <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png" class="pricing" alt="" />
+                            <?= Html::img("@web/images/home/Карусель1.jpg", ['alt' => 'Алфавит']) ?>
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>100% Responsive Design</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                <h1><span>А</span>птека</h1>
+                                <h2>Народный выбор!</h2>
+                                <p>Витамины группы Б – это целая группа водорастворимых соединений, которые принимают участие во всех обменных процессах, протекающих в организме. Они способствуют высвобождению энергии из различных пищевых веществ, в которых присутствуют калории. Широко применяются для лечения заболеваний нервной системы.</p>
+                                <a href="<?= \yii\helpers\Url::to(['product/view', 'drug_name' => 'Витамины группы Б']) ?>">
+                                <button type="button" class="btn btn-default get">Подробнее</button>
+                                </a>
                             </div>
                             <div class="col-sm-6">
-                                <img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png" class="pricing" alt="" />
+                            <?= Html::img("@web/images/home/Карусель2.jpg", ['alt' => 'Витамины группы Б']) ?>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free Ecommerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                <h1><span>А</span>птека</h1>
+                                <h2>Бессонница? Раздражительность?</h2>
+                                <p>Теравит Антистресс - комплексный поливитаминный препарат с микроэлементами и экстрактами лекарственных растений.</p>
+                                <a href="<?= \yii\helpers\Url::to(['product/view', 'drug_name' => 'Теравит']) ?>">
+                                <button type="button" class="btn btn-default get">Подробнее</button>
+                                </a>
                             </div>
                             <div class="col-sm-6">
-                                <img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png" class="pricing" alt="" />
+                            <?= Html::img("@web/images/home/Карусель3.jpg", ['alt' => 'Теравит']) ?>
                             </div>
                         </div>
 
