@@ -72,7 +72,7 @@ ltAppAsset::register($this);
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="/images/home/logo.png" alt="" /></a>
+							<a href="/"><img src="/images/home/logo.png" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
@@ -104,7 +104,7 @@ ltAppAsset::register($this);
 								<?php if(!Yii::$app->user->isGuest):?>
 								<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i><?=Yii::$app->user->identity['username']?> (Выход)</a></li>
 								<?php endif;?>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Войти</a></li>
+								<li><a href="/admin"><i class="fa fa-lock"></i>Войти</a></li>
 							</ul>
 						</div>
 					</div>
@@ -128,24 +128,10 @@ ltAppAsset::register($this);
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="/" class="active">Главная</a></li>
-								<li class="dropdown"><a href="#">Магазин<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="shop.html">Товары</a></li>
-										<li><a href="product-details.html">Детально</a></li>
-										<li><a href="checkout.html">Проверка</a></li>
-										<li><a href="cart.html">Корзина</a></li>
-										<li><a href="login.html">Войти</a></li>
-									</ul>
-								</li>
-								<li class="dropdown"><a href="#">Новости<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="blog.html">Список новостей</a></li>
-										<li><a href="blog-single.html">Новость</a></li>
-									</ul>
-								</li>
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Контакты</a></li>
+								<li><a href="/admin/work/orders">[Заказы]</a></li>
+								<li><a href="/admin/work/condition">[Поступление товара]</a></li>
+								<li><a href="/admin/work/check">[Учет]</a></li>
+								<li><a href="/admin/work/story">[История цен]</a></li>
 							</ul>
 						</div>
 					</div>

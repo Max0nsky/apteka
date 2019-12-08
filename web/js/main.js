@@ -16,10 +16,10 @@
 				alert('Error!');
 			}
 		});
-	});*/
+	});
 	$('.add-to-cart').on('click', function(){
 		alert('TEST!!!!!');
-	});
+	});*/
 	var RGBChange = function() {
 		$('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
 	  };

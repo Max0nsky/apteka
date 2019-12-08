@@ -2,9 +2,9 @@
 
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-
+ 
 /* @var $this yii\web\View */
-
+ 
 
 $this->title = 'Оформление заказа';
 ?>
@@ -12,10 +12,11 @@ $this->title = 'Оформление заказа';
     <div class="container">
         <div class="row">
             <h3>Оформление заказа "<?= $drug_name ?>"</h3>
+            <h4>(На складе: <?=$r_s?>)</h4>
             <?php if (Yii::$app->session->hasFlash('success')) : ?>
                 <div class="padding-right alert alert-success col-sm-9" role="alert">
                     <?php echo Yii::$app->session->getFlash('success') ?>
-                </div>
+                </div> 
             <?php endif; ?>
             <?php if (Yii::$app->session->hasFlash('error')) : ?>
                 <div class="padding-right alert alert-danger col-sm-9" role="alert">

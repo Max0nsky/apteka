@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace app\controllers;
 
 use app\models\Medicine;
@@ -15,7 +15,7 @@ class MedicineController extends AppController
     public function actionIndex()
     {
         //$sql = "SELECT * FROM `medicines`";
-
+ 
         $query = Medicine::find();
 
         $pages = new Pagination(['totalCount' => $query->count(), 'pagesize' => 6, 'forcePageParam' => false, 'pageSizeParam' => false]);
@@ -45,7 +45,7 @@ class MedicineController extends AppController
     {
         $drug_name = Yii::$app->request->get('drug_name');
 
-        $buy_medicine = new Buy();
+        $buy_medicine = new Buy(); 
         $buy_medicine->date_buy = date("Y-m-d");
         $buy_medicine->drug_name = $drug_name;
 
@@ -75,6 +75,6 @@ class MedicineController extends AppController
                 }
             }
         }
-        return $this->render('purchase', compact('drug_name', 'buy_medicine'));
+        return $this->render('purchase', compact('drug_name', 'buy_medicine', 'r_s'));
     }
 }

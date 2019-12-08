@@ -1,12 +1,11 @@
+<?php
+use yii\helpers\Html;
+?>
+
 <div class="admin-default-index container">
-    <h1><?= $this->context->action->uniqueId ?></h1>
-    <p>
-        This is the view content for action "<?= $this->context->action->id ?>".
-        The action belongs to the controller "<?= get_class($this->context) ?>"
-        in the "<?= $this->context->module->id ?>" module.
-    </p>
-    <p>
-        You may customize this page by editing the following file:<br>
-        <code><?= __FILE__ ?></code>
-    </p>
-</div>
+    <h1>Это админка и тут будут описание с меню</h1><br>
+    <a href="/admin/work/orders">Заказы</a><br>
+    <a href="/admin/work/condition">Склады и завоз</a><br>
+    <a href="/admin/work/check">Учет товаров</a><br>
+    <a href="/admin/work/story">История цен</a><br>
+</div> 

@@ -7,6 +7,7 @@ use yii\helpers\Html;
 
 $this->title = $product[0]['drug_name'];
 ?>
+
 <section>
 	<div class="container">
 		<div class="row">
