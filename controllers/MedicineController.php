@@ -63,7 +63,7 @@ class MedicineController extends AppController
                 $num = $r_s - $buy_medicine->quantity;
                 if ($buy_medicine->validate()) 
                 { 
-                    $sql_in_pushases = "INSERT INTO `purchases` (`firstname`, `surname`, `patronymic`, `drug_name`, `quantity`, `num_store`, `phone`, `date_buy`) VALUES ('".$buy_medicine->firstname."', '".$buy_medicine->surname."', '".$buy_medicine->patronymic."', '".$buy_medicine->drug_name."', '".$buy_medicine->quantity."', '".$buy_medicine->num_store."', '".$buy_medicine->phone."', '".$buy_medicine->date_buy."')";
+                    $sql_in_pushases = "INSERT INTO `purchases` (`firstname`, `surname`, `patronymic`, `drug_name`, `quantity`, `num_store`, `phone`, `date_buy`, `condition_purchase`) VALUES ('".$buy_medicine->firstname."', '".$buy_medicine->surname."', '".$buy_medicine->patronymic."', '".$buy_medicine->drug_name."', '".$buy_medicine->quantity."', '".$buy_medicine->num_store."', '".$buy_medicine->phone."', '".$buy_medicine->date_buy."', 'Ожидание')";
                     $sql_update = "UPDATE `store_condition` SET `quantity` = ".$num." WHERE `store_condition`.`num` = ".$buy_medicine->num_store." AND `store_condition`.`drug_name` = '".$buy_medicine->drug_name."'";
                     Yii::$app->db->createCommand($sql_in_pushases)->execute();
                     Yii::$app->db->createCommand($sql_update)->execute();

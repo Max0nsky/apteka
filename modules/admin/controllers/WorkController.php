@@ -2,9 +2,13 @@
 
 namespace app\modules\admin\controllers;
 
+
 use app\models\Control;
+use app\models\Preparat;
+use app\models\UploadImage;
 use Yii;
 use yii\web\Controller;
+use yii\web\UploadedFile;
 
 class WorkController extends Controller
 {
@@ -55,17 +59,54 @@ class WorkController extends Controller
         $date_this = date("Y-m-d");
         $model = new Control();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) 
-        {
-            if($model->store)
-            $sql = "INSERT INTO `check_store` (`num`, `date_check`, `count_start`, `count_finish`, `name_worker`) VALUES ('" . $model->store . "', '" . $date_this . "', '" . $model->start . "', '" . $model->finish . "', '" . $model->surname . "');";
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->store)
+                $sql = "INSERT INTO `check_store` (`num`, `date_check`, `count_start`, `count_finish`, `name_worker`) VALUES ('" . $model->store . "', '" . $date_this . "', '" . $model->start . "', '" . $model->finish . "', '" . $model->surname . "');";
             Yii::$app->db->createCommand($sql)->execute();
             Yii::$app->session->setFlash('success', 'Данные о проверке успешно отправлены');
-        } 
-        else 
-        {
+        } else {
             Yii::$app->session->setFlash('error', 'Произошла ошибка! Попробуйте ввести данные заново.');
         }
         return $this->render('сontrolview', compact('model'));
+    }
+
+    public function actionList()
+    {
+        $sql = "SELECT * FROM `medicines`";
+        $list_medicines = Yii::$app->db->createCommand($sql)->queryAll();
+
+        return $this->render('list', compact('list_medicines'));
+    }
+
+    public function actionAddpreparat()
+    {
+        $add_this = new Preparat();
+
+        return $this->render('addpreparat', compact('add_this'));
+    }
+
+    public function actionUpload()
+    {
+        $model = new UploadImage();
+        if (Yii::$app->request->isPost) {
+            $model->image = UploadedFile::getInstance($model, 'image');
+            $model->upload();
+            return $this->render('upload', ['model' => $model]);
+        }
+        return $this->render('upload', ['model' => $model]);
+    }
+
+    public function actionUpdatestore()
+    {
+        Yii::$app->session->setFlash('error', 'q');
+
+        if(isset($_GET['num_before']) and isset($_GET['drug_name_before']) and isset($_GET['quantity_before']))
+        {
+            $sql_update = "UPDATE `store_condition` SET `quantity` = '".$_GET['quantity_before']."' WHERE `store_condition`.`num` = ".$_GET['num_before']." AND `store_condition`.`drug_name` = '".$_GET['drug_name_before']."';";
+            Yii::$app->db->createCommand($sql_update)->execute();
+            return $this->redirect('/admin/work/condition');
+            die;
+        }
+        return $this->render('updatestore');
     }
 }

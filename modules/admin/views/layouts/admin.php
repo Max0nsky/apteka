@@ -129,6 +129,7 @@ ltAppAsset::register($this);
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="/admin/work/orders">[Заказы]</a></li>
+								<li><a href="/admin/work/list">[База лекарств]</a></li>
 								<li><a href="/admin/work/condition">[Поступление товара]</a></li>
 								<li><a href="/admin/work/check">[Учет]</a></li>
 								<li><a href="/admin/work/story">[История цен]</a></li>
