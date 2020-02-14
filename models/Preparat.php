@@ -19,7 +19,7 @@ class Preparat extends Model
             'drug_name' => 'Название лекарства',
             'description' => 'Описание',
             'price' => 'Цена',
-            'img' => 'Изображение',
+            'img' => 'Название загруженного изображения. Пример: file.jpg',
         ];
     }
     public function rules()

@@ -2,8 +2,8 @@
 
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-?>
-
+?> 
+ 
 <div class="container">
     <h2 align="center">Завоз товаров:</h2><br>
     <table class="table table-bordered">

@@ -45,8 +45,8 @@ ltAppAsset::register($this);
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +7 950 123 34 56</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> kursach@mail.ru</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +7 123 45 67 89</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> maksimum.99@mail.ru</a></li>
 							</ul>
 						</div>
 					</div>
@@ -130,6 +130,7 @@ ltAppAsset::register($this);
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="/admin/work/orders">[Заказы]</a></li>
 								<li><a href="/admin/work/list">[База лекарств]</a></li>
+								<li><a href="/admin/work/analogues">[Аналоги]</a></li>
 								<li><a href="/admin/work/condition">[Поступление товара]</a></li>
 								<li><a href="/admin/work/check">[Учет]</a></li>
 								<li><a href="/admin/work/story">[История цен]</a></li>

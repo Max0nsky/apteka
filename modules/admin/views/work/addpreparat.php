@@ -7,8 +7,8 @@ use yii\helpers\Html;
 <section>
     <div class="container">
         <div class="row">
-            <?php debug($add_this); ?>
             <h3>Добвление нового товара</h1>
+
                 <?php if (Yii::$app->session->hasFlash('success')) : ?>
                     <div class="padding-right alert alert-success col-sm-9" role="alert">
                         <?php echo Yii::$app->session->getFlash('success') ?>
