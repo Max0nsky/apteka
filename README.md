@@ -8,338 +8,339 @@
 
 Экспорт базы данных:
 
--- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
--- Хост: 127.0.0.1:3306
--- Время создания: Фев 23 2020 г., 19:24
--- Версия сервера: 5.7.25
--- Версия PHP: 7.1.32
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- База данных: `pharmacy`
---
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `analogues`
---
-
-CREATE TABLE `analogues` (
-  `drug_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `analogue` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `analogues`
---
-
-INSERT INTO `analogues` (`drug_name`, `analogue`) VALUES
-('Но-шпа', 'Дротаверин');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `check_store`
---
-
-CREATE TABLE `check_store` (
-  `num` int(11) NOT NULL,
-  `date_check` date NOT NULL,
-  `count_start` int(11) NOT NULL,
-  `count_finish` int(11) NOT NULL,
-  `name_worker` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `check_store`
---
-
-INSERT INTO `check_store` (`num`, `date_check`, `count_start`, `count_finish`, `name_worker`) VALUES
-(1, '2019-11-17', 18, 17, 'Медведев'),
-(1, '2019-11-27', 32, 32, 'Медведев'),
-(1, '2020-01-17', 32, 31, 'Проверков'),
-(2, '2019-11-17', 25, 25, 'Зайцев'),
-(2, '2019-11-27', 40, 40, 'Зайцев');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `medicines`
---
-
-CREATE TABLE `medicines` (
-  `drug_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` int(11) NOT NULL,
-  `img` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `medicines`
---
-
-INSERT INTO `medicines` (`drug_name`, `description`, `price`, `img`) VALUES
-('Алфавит', 'Одни из наиболее известных и популярных витаминных комплексов. Их представлено много комбинаций для разных возрастов, для разных целей (профилактическая, лечебная и другое), для некоторых видов деятельности (спорт, учеба), для косметических целей. ', 415, 'Алфавит.jpg'),
-('Амброксол', 'Муколитическое и отхаркивающее средство, является активным N-деметилированным метаболитом бромгексина. Обладает секретомоторным, секретолитическим и отхаркивающим действием. Стимулирует серозные клетки слизистой оболочки бронхов, повышает двигательную активность мерцательного эпителия путем воздействия на пневмоциты 2 типа в альвеолах и клетки Клара в бронхиолах, усиливает образование эндогенного сурфактанта - поверхностно-активного вещества, обеспечивающего скольжение бронхиального секрета в просвете дыхательных путей. ', 150, 'Амброксол.jpg'),
-('Антигриппин', 'Препарат для симптоматической терапии острых респираторных заболеваний\r\nКомбинированный препарат. Парацетамол обладает анальгезирующим и жаропонижающим действием; устраняет головную и другие виды боли, снижает повышенную температуру. Хлорфенамин - блокатор гистаминовых Н1-рецепторов, обладает противоаллергическим действием, облегчает дыхание через нос, снижает чувство заложенности носа, чихание, слезотечение, зуд и покраснение глаз. Аскорбиновая кислота (витамин С) участвует в регулировании окислительно-восстановительных процессов, углеводного обмена, повышает сопротивляемость организма.', 285, 'Антигриппин.jpg'),
-('Аспирин', 'Таблетки шипучие белого цвета, круглые, плоские, скошенные к краю, с оттиском в виде фирменного знака (\"байеровский\" крест) с одной стороны, другая сторона гладкая.Ацетилсалициловая кислота оказывает анальгезирующее, жаропонижающее, противовоспалительное действие, связанное с подавлением ЦОГ-1 и ЦОГ-2, регулирующих синтез простагландинов; тормозит агрегацию тромбоцитов.', 300, 'Аспирин.jpg'),
-('Витамины группы Б', 'Витамины группы B участвуют непосредственно в поддержании нормального функционирования нервной системы, головного мозга, сердца и сосудов, органов пищеварения. Кроме того, витамины В улучшают защитные функции организма от агрессивной внешней среды (ультрафиолетовые лучи, инфекция и др.), поддерживают в хорошем и здоровом состоянии внешний вид человека – кожу, волосы, ногти. Предупреждают преждевременное старение человека и многое другое.', 190, 'Витамины_группы_Б.jpg'),
-('Дротаверин', 'Спазмолитик миотропного действия. По химической структуре и фармакологическим свойствам близок к папаверину, однако превосходит его по эффективности и продолжительности действия. Снижает тонус гладких мышц внутренних органов, снижает их двигательную активность. ', 70, 'Дротаверин.jpg'),
-('Но-шпа', 'Миотропный спазмолитик\r\nСпазмолитическое средство, производное изохинолина. Оказывает мощное спазмолитическое действие на гладкую мускулатуру за счет ингибирования фермента ФДЭ 4 типа (ФДЭ4). Ингибирование ФДЭ4 приводит к повышению концентрации цАМФ, инактивации киназы легкой цепи миозина, что в дальнейшем вызывает расслабление гладкой мускулатуры. ', 220, 'Но-шпа.jpg'),
-('Теравит', 'Комбинированный препарат, содержащий витамины, минералы и микроэлементы; действие обусловлено свойствами, входящими в его состав ингредиентами.\r\nПоказания: профилактика и лечение гипо- и авитаминозов, недостатка минеральных веществ у взрослых, при несбалансированном или неполноценном питании, в период выздоровления после перенесенных заболеваний.', 120, 'Теравит.jpg'),
-('Терафлю', 'Комбинированный препарат, действие которого обусловлено входящими в его состав компонентами. Оказывает жаропонижающее, анальгезирующее, сосудосуживающее действие, устраняет симптомы \"простуды\". ', 422, 'Терафлю.jpg');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `price_story`
---
-
-CREATE TABLE `price_story` (
-  `drug_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date_price` date NOT NULL,
-  `price` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `price_story`
---
-
-INSERT INTO `price_story` (`drug_name`, `date_price`, `price`) VALUES
-('Алфавит', '2019-11-27', 410),
-('Амброксол', '2019-11-17', 150),
-('Антигриппин', '2019-11-17', 285),
-('Аспирин', '2019-11-17', 300),
-('Витамины группы Б', '2019-11-27', 190),
-('Дротаверин', '2019-11-17', 70),
-('Но-шпа', '2019-11-17', 220),
-('Теравит', '2019-11-27', 120),
-('Терафлю', '2019-11-17', 420);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `purchases`
---
-
-CREATE TABLE `purchases` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `surname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `patronymic` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `drug_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `num_store` int(11) NOT NULL,
-  `phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date_buy` date NOT NULL,
-  `condition_purchase` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `purchases`
---
-
-INSERT INTO `purchases` (`id`, `firstname`, `surname`, `patronymic`, `drug_name`, `quantity`, `num_store`, `phone`, `date_buy`, `condition_purchase`) VALUES
-(1, 'Иван', 'Иванов', 'Иванович', 'Амброксол', 1, 1, '89121231212', '2019-11-17', 'Продано'),
-(2, 'Петр', 'Петров', 'Петрович', 'Антигриппин', 1, 2, '88998886611', '2019-11-24', 'Продано'),
-(3, 'Дмитрий', 'Бобров', 'Олегович', 'Алфавит', 2, 1, '89232342323', '2019-12-08', 'Продано'),
-(4, 'Иван', 'Иванов', 'Иванович', 'Но-шпа', 1, 1, '8123456789', '2020-01-16', 'Продано'),
-(5, 'Дмитрий', 'Бобров', 'Олегович', 'Антигриппин', 2, 1, '89232342323', '2020-02-15', 'Продано'),
-(6, 'Петр', 'Петров', 'Петрович', 'Амброксол', 1, 1, '88998886611', '2020-02-15', 'Продано');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `store`
---
-
-CREATE TABLE `store` (
-  `num` int(11) NOT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `store`
---
-
-INSERT INTO `store` (`num`, `address`, `phone`) VALUES
-(1, 'г. Воронеж, ул. Победы, д. 133', '89031231223'),
-(2, 'г. Воронеж, ул. Пушкина, д. 7', '89031231222');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `store_condition`
---
-
-CREATE TABLE `store_condition` (
-  `num` int(11) NOT NULL,
-  `drug_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `store_condition`
---
-
-INSERT INTO `store_condition` (`num`, `drug_name`, `quantity`) VALUES
-(1, 'Алфавит', 6),
-(1, 'Амброксол', 3),
-(1, 'Антигриппин', 3),
-(1, 'Аспирин', 4),
-(1, 'Витамины группы Б', 5),
-(1, 'Дротаверин', 3),
-(1, 'Но-шпа', 3),
-(1, 'Теравит', 5),
-(1, 'Терафлю', 5),
-(2, 'Алфавит', 5),
-(2, 'Амброксол', 2),
-(2, 'Антигриппин', 5),
-(2, 'Аспирин', 4),
-(2, 'Витамины группы Б', 5),
-(2, 'Дротаверин', 1),
-(2, 'Но-шпа', 4),
-(2, 'Теравит', 5),
-(2, 'Терафлю', 8);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `user`
---
-
-CREATE TABLE `user` (
-  `id` int(10) NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `auth_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `user`
---
-
-INSERT INTO `user` (`id`, `username`, `password`, `auth_key`) VALUES
-(1, 'admin', '$2y$13$9kSZGSwMzWs1XS8rV8mf0.CfIxCBWKGHmEk4GrtlLZP1PXvohg/5a', 'YAnjG-mKZATeEJsxK3Q1Rg1EkA0FOWMo');
-
---
--- Индексы сохранённых таблиц
---
-
---
--- Индексы таблицы `analogues`
---
-ALTER TABLE `analogues`
-  ADD PRIMARY KEY (`drug_name`),
-  ADD KEY `analogue` (`analogue`);
-
---
--- Индексы таблицы `check_store`
---
-ALTER TABLE `check_store`
-  ADD PRIMARY KEY (`num`,`date_check`);
-
---
--- Индексы таблицы `medicines`
---
-ALTER TABLE `medicines`
-  ADD PRIMARY KEY (`drug_name`);
-
---
--- Индексы таблицы `price_story`
---
-ALTER TABLE `price_story`
-  ADD PRIMARY KEY (`drug_name`,`date_price`);
-
---
--- Индексы таблицы `purchases`
---
-ALTER TABLE `purchases`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `store`
---
-ALTER TABLE `store`
-  ADD PRIMARY KEY (`num`);
-
---
--- Индексы таблицы `store_condition`
---
-ALTER TABLE `store_condition`
-  ADD PRIMARY KEY (`num`,`drug_name`),
-  ADD KEY `drug_name` (`drug_name`);
-
---
--- Индексы таблицы `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT для сохранённых таблиц
---
-
---
--- AUTO_INCREMENT для таблицы `purchases`
---
-ALTER TABLE `purchases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT для таблицы `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Ограничения внешнего ключа сохраненных таблиц
---
-
---
--- Ограничения внешнего ключа таблицы `analogues`
---
-ALTER TABLE `analogues`
-  ADD CONSTRAINT `analogues_ibfk_1` FOREIGN KEY (`drug_name`) REFERENCES `medicines` (`drug_name`),
-  ADD CONSTRAINT `analogues_ibfk_2` FOREIGN KEY (`analogue`) REFERENCES `medicines` (`drug_name`);
-
---
--- Ограничения внешнего ключа таблицы `check_store`
---
-ALTER TABLE `check_store`
-  ADD CONSTRAINT `check_store_ibfk_1` FOREIGN KEY (`num`) REFERENCES `store` (`num`);
-
---
--- Ограничения внешнего ключа таблицы `price_story`
---
-ALTER TABLE `price_story`
-  ADD CONSTRAINT `price_story_ibfk_1` FOREIGN KEY (`drug_name`) REFERENCES `medicines` (`drug_name`);
-
---
--- Ограничения внешнего ключа таблицы `store_condition`
---
-ALTER TABLE `store_condition`
-  ADD CONSTRAINT `store_condition_ibfk_1` FOREIGN KEY (`num`) REFERENCES `store` (`num`),
-  ADD CONSTRAINT `store_condition_ibfk_2` FOREIGN KEY (`drug_name`) REFERENCES `medicines` (`drug_name`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+         -- phpMyAdmin SQL Dump
+        -- version 4.9.0.1
+        -- https://www.phpmyadmin.net/
+        -- Хост: 127.0.0.1:3306
+        -- Время создания: Фев 23 2020 г., 19:24
+        -- Версия сервера: 5.7.25
+        -- Версия PHP: 7.1.32
+        
+        SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+        SET AUTOCOMMIT = 0;
+        START TRANSACTION;
+        SET time_zone = "+00:00";
+        
+        
+        /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+        /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+        /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+        /*!40101 SET NAMES utf8mb4 */;
+        
+        --
+        -- База данных: `pharmacy`
+        --
+        
+        -- --------------------------------------------------------
+        
+        --
+        -- Структура таблицы `analogues`
+        --
+        
+        CREATE TABLE `analogues` (
+          `drug_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `analogue` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        
+        --
+        -- Дамп данных таблицы `analogues`
+        --
+        
+        INSERT INTO `analogues` (`drug_name`, `analogue`) VALUES
+        ('Но-шпа', 'Дротаверин');
+        
+        -- --------------------------------------------------------
+        
+        --
+        -- Структура таблицы `check_store`
+        --
+        
+        CREATE TABLE `check_store` (
+          `num` int(11) NOT NULL,
+          `date_check` date NOT NULL,
+          `count_start` int(11) NOT NULL,
+          `count_finish` int(11) NOT NULL,
+          `name_worker` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        
+        --
+        -- Дамп данных таблицы `check_store`
+        --
+        
+        INSERT INTO `check_store` (`num`, `date_check`, `count_start`, `count_finish`, `name_worker`) VALUES
+        (1, '2019-11-17', 18, 17, 'Медведев'),
+        (1, '2019-11-27', 32, 32, 'Медведев'),
+        (1, '2020-01-17', 32, 31, 'Проверков'),
+        (2, '2019-11-17', 25, 25, 'Зайцев'),
+        (2, '2019-11-27', 40, 40, 'Зайцев');
+        
+        -- --------------------------------------------------------
+        
+        --
+        -- Структура таблицы `medicines`
+        --
+        
+        CREATE TABLE `medicines` (
+          `drug_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+          `price` int(11) NOT NULL,
+          `img` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        
+        --
+        -- Дамп данных таблицы `medicines`
+        --
+        
+        INSERT INTO `medicines` (`drug_name`, `description`, `price`, `img`) VALUES
+        ечебная и другое), для некоторых видов деятельности (спорт, учеба), для косметических целей. ', 415, 'Алфавит.jpg'),
+        ркивающим действием. Стимулирует серозные клетки слизистой оболочки бронхов, повышает двигательную активность мерцательного эпителия путем воздействия на пневмоциты 2 типа в альвеолах и клетки Клара в бронхиолах, усиливает образование эндогенного сурфактанта - поверхностно-активного вещества, обеспечивающего скольжение бронхиального секрета в просвете дыхательных путей. ', 150, 'Амброксол.jpg'),
+        им действием; устраняет головную и другие виды боли, снижает повышенную температуру. Хлорфенамин - блокатор гистаминовых Н1-рецепторов, обладает противоаллергическим действием, облегчает дыхание через нос, снижает чувство заложенности носа, чихание, слезотечение, зуд и покраснение глаз. Аскорбиновая кислота (витамин С) участвует в регулировании окислительно-восстановительных процессов, углеводного обмена, повышает сопротивляемость организма.', 285, 'Антигриппин.jpg'),
+        на гладкая.Ацетилсалициловая кислота оказывает анальгезирующее, жаропонижающее, противовоспалительное действие, связанное с подавлением ЦОГ-1 и ЦОГ-2, регулирующих синтез простагландинов; тормозит агрегацию тромбоцитов.', 300, 'Аспирин.jpg'),
+        в пищеварения. Кроме того, витамины В улучшают защитные функции организма от агрессивной внешней среды (ультрафиолетовые лучи, инфекция и др.), поддерживают в хорошем и здоровом состоянии внешний вид человека – кожу, волосы, ногти. Предупреждают преждевременное старение человека и многое другое.', 190, 'Витамины_группы_Б.jpg'),
+        родолжительности действия. Снижает тонус гладких мышц внутренних органов, снижает их двигательную активность. ', 70, 'Дротаверин.jpg'),
+        бирования фермента ФДЭ 4 типа (ФДЭ4). Ингибирование ФДЭ4 приводит к повышению концентрации цАМФ, инактивации киназы легкой цепи миозина, что в дальнейшем вызывает расслабление гладкой мускулатуры. ', 220, 'Но-шпа.jpg'),
+        я: профилактика и лечение гипо- и авитаминозов, недостатка минеральных веществ у взрослых, при несбалансированном или неполноценном питании, в период выздоровления после перенесенных заболеваний.', 120, 'Теравит.jpg'),
+        йствие, устраняет симптомы \"простуды\". ', 422, 'Терафлю.jpg');
+        
+        -- --------------------------------------------------------
+        
+        --
+        -- Структура таблицы `price_story`
+        --
+        
+        CREATE TABLE `price_story` (
+          `drug_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `date_price` date NOT NULL,
+          `price` int(11) NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        
+        --
+        -- Дамп данных таблицы `price_story`
+        --
+        
+        INSERT INTO `price_story` (`drug_name`, `date_price`, `price`) VALUES
+        ('Алфавит', '2019-11-27', 410),
+        ('Амброксол', '2019-11-17', 150),
+        ('Антигриппин', '2019-11-17', 285),
+        ('Аспирин', '2019-11-17', 300),
+        ('Витамины группы Б', '2019-11-27', 190),
+        ('Дротаверин', '2019-11-17', 70),
+        ('Но-шпа', '2019-11-17', 220),
+        ('Теравит', '2019-11-27', 120),
+        ('Терафлю', '2019-11-17', 420);
+        
+        -- --------------------------------------------------------
+        
+        --
+        -- Структура таблицы `purchases`
+        --
+        
+        CREATE TABLE `purchases` (
+          `id` int(11) NOT NULL,
+          `firstname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `surname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `patronymic` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `drug_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `quantity` int(11) NOT NULL,
+          `num_store` int(11) NOT NULL,
+          `phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `date_buy` date NOT NULL,
+          `condition_purchase` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        
+        --
+        -- Дамп данных таблицы `purchases`
+        --
+        
+        INSERT INTO `purchases` (`id`, `firstname`, `surname`, `patronymic`, `drug_name`, `quantity`, `num_store`, `phone`, `date_buy`, `condition_purchase`) VALUES
+        (1, 'Иван', 'Иванов', 'Иванович', 'Амброксол', 1, 1, '89121231212', '2019-11-17', 'Продано'),
+        (2, 'Петр', 'Петров', 'Петрович', 'Антигриппин', 1, 2, '88998886611', '2019-11-24', 'Продано'),
+        (3, 'Дмитрий', 'Бобров', 'Олегович', 'Алфавит', 2, 1, '89232342323', '2019-12-08', 'Продано'),
+        (4, 'Иван', 'Иванов', 'Иванович', 'Но-шпа', 1, 1, '8123456789', '2020-01-16', 'Продано'),
+        (5, 'Дмитрий', 'Бобров', 'Олегович', 'Антигриппин', 2, 1, '89232342323', '2020-02-15', 'Продано'),
+        (6, 'Петр', 'Петров', 'Петрович', 'Амброксол', 1, 1, '88998886611', '2020-02-15', 'Продано');
+        
+        -- --------------------------------------------------------
+        
+        --
+        -- Структура таблицы `store`
+        --
+        
+        CREATE TABLE `store` (
+          `num` int(11) NOT NULL,
+          `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+          `phone` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        
+        --
+        -- Дамп данных таблицы `store`
+        --
+        
+        INSERT INTO `store` (`num`, `address`, `phone`) VALUES
+        (1, 'г. Воронеж, ул. Победы, д. 133', '89031231223'),
+        (2, 'г. Воронеж, ул. Пушкина, д. 7', '89031231222');
+        
+        -- --------------------------------------------------------
+        
+        --
+        -- Структура таблицы `store_condition`
+        --
+        
+        CREATE TABLE `store_condition` (
+          `num` int(11) NOT NULL,
+          `drug_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `quantity` int(11) NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        
+        --
+        -- Дамп данных таблицы `store_condition`
+        --
+        
+        INSERT INTO `store_condition` (`num`, `drug_name`, `quantity`) VALUES
+        (1, 'Алфавит', 6),
+        (1, 'Амброксол', 3),
+        (1, 'Антигриппин', 3),
+        (1, 'Аспирин', 4),
+        (1, 'Витамины группы Б', 5),
+        (1, 'Дротаверин', 3),
+        (1, 'Но-шпа', 3),
+        (1, 'Теравит', 5),
+        (1, 'Терафлю', 5),
+        (2, 'Алфавит', 5),
+        (2, 'Амброксол', 2),
+        (2, 'Антигриппин', 5),
+        (2, 'Аспирин', 4),
+        (2, 'Витамины группы Б', 5),
+        (2, 'Дротаверин', 1),
+        (2, 'Но-шпа', 4),
+        (2, 'Теравит', 5),
+        (2, 'Терафлю', 8);
+        
+        -- --------------------------------------------------------
+        
+        --
+        -- Структура таблицы `user`
+        --
+        
+        CREATE TABLE `user` (
+          `id` int(10) NOT NULL,
+          `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+          `auth_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        
+        --
+        -- Дамп данных таблицы `user`
+        --
+        
+        INSERT INTO `user` (`id`, `username`, `password`, `auth_key`) VALUES
+        (1, 'admin', '$2y$13$9kSZGSwMzWs1XS8rV8mf0.CfIxCBWKGHmEk4GrtlLZP1PXvohg/5a', 'YAnjG-mKZATeEJsxK3Q1Rg1EkA0FOWMo');
+        
+        --
+        -- Индексы сохранённых таблиц
+        --
+        
+        --
+        -- Индексы таблицы `analogues`
+        --
+        ALTER TABLE `analogues`
+          ADD PRIMARY KEY (`drug_name`),
+          ADD KEY `analogue` (`analogue`);
+        
+        --
+        -- Индексы таблицы `check_store`
+        --
+        ALTER TABLE `check_store`
+          ADD PRIMARY KEY (`num`,`date_check`);
+        
+        --
+        -- Индексы таблицы `medicines`
+        --
+        ALTER TABLE `medicines`
+          ADD PRIMARY KEY (`drug_name`);
+        
+        --
+        -- Индексы таблицы `price_story`
+        --
+        ALTER TABLE `price_story`
+          ADD PRIMARY KEY (`drug_name`,`date_price`);
+        
+        --
+        -- Индексы таблицы `purchases`
+        --
+        ALTER TABLE `purchases`
+          ADD PRIMARY KEY (`id`);
+        
+        --
+        -- Индексы таблицы `store`
+        --
+        ALTER TABLE `store`
+          ADD PRIMARY KEY (`num`);
+        
+        --
+        -- Индексы таблицы `store_condition`
+        --
+        ALTER TABLE `store_condition`
+          ADD PRIMARY KEY (`num`,`drug_name`),
+          ADD KEY `drug_name` (`drug_name`);
+        
+        --
+        -- Индексы таблицы `user`
+        --
+        ALTER TABLE `user`
+          ADD PRIMARY KEY (`id`);
+        
+        --
+        -- AUTO_INCREMENT для сохранённых таблиц
+        --
+        
+        --
+        -- AUTO_INCREMENT для таблицы `purchases`
+        --
+        ALTER TABLE `purchases`
+          MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+        
+        --
+        -- AUTO_INCREMENT для таблицы `user`
+        --
+        ALTER TABLE `user`
+          MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+        
+        --
+        -- Ограничения внешнего ключа сохраненных таблиц
+        --
+        
+        --
+        -- Ограничения внешнего ключа таблицы `analogues`
+        --
+        ALTER TABLE `analogues`
+          ADD CONSTRAINT `analogues_ibfk_1` FOREIGN KEY (`drug_name`) REFERENCES `medicines` (`drug_name`),
+          ADD CONSTRAINT `analogues_ibfk_2` FOREIGN KEY (`analogue`) REFERENCES `medicines` (`drug_name`);
+        
+        --
+        -- Ограничения внешнего ключа таблицы `check_store`
+        --
+        ALTER TABLE `check_store`
+          ADD CONSTRAINT `check_store_ibfk_1` FOREIGN KEY (`num`) REFERENCES `store` (`num`);
+        
+        --
+        -- Ограничения внешнего ключа таблицы `price_story`
+        --
+        ALTER TABLE `price_story`
+          ADD CONSTRAINT `price_story_ibfk_1` FOREIGN KEY (`drug_name`) REFERENCES `medicines` (`drug_name`);
+        
+        --
+        -- Ограничения внешнего ключа таблицы `store_condition`
+        --
+        ALTER TABLE `store_condition`
+          ADD CONSTRAINT `store_condition_ibfk_1` FOREIGN KEY (`num`) REFERENCES `store` (`num`),
+          ADD CONSTRAINT `store_condition_ibfk_2` FOREIGN KEY (`drug_name`) REFERENCES `medicines` (`drug_name`);
+        COMMIT;
+        
+        /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+        /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+        /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+        
 
 
 ------------
