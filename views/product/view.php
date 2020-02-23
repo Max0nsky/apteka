@@ -5,7 +5,7 @@
 
 use yii\helpers\Html;
 
-$this->title = $product[0]['drug_name'];
+$this->title = $product->drug_name;
 ?>
 
 <section>
@@ -27,23 +27,23 @@ $this->title = $product[0]['drug_name'];
 					<!--product-details-->
 					<div class="col-sm-5">
 						<div class="view-product">
-							<?= Html::img("@web/images/medicines/{$product[0]['img']}", ['alt' => $product->drug_name]) ?>
+							<?= Html::img("@web/images/medicines/{$product->img}", ['alt' => $product->drug_name]) ?>
 						</div>
 					</div>
 					<div class="col-sm-7">
 						<div class="product-information">
 							<!--/product-information-->
-							<h2><?= $product[0]['drug_name'] ?></h2>
+							<h2><?= $product->drug_name ?></h2>
 							<span>
-								<span><?= $product[0]['price']; ?>Р</span>
-								<a href="<?= \yii\helpers\Url::to(['medicine/purchase', 'drug_name' => $product[0]['drug_name']]) ?>">
+								<span><?= $product->price; ?>Р</span>
+								<a href="<?= \yii\helpers\Url::to(['medicine/purchase', 'drug_name' => $product->drug_name]) ?>">
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Купить
 									</button>
 								</a>
 							</span>
-							<p><b>Описание: </b><?= $product[0]['description'] ?></p>
+							<p><b>Описание: </b><?= $product->description ?></p>
 							<p><b>Аналоги:</b>
 								<?php foreach ($analogues as $analogue) : ?>
 									<a href="<?= \yii\helpers\Url::to(['product/view', 'drug_name' => $analogue['analogue']]) ?>">
