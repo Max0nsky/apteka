@@ -8,14 +8,7 @@
 
 Экспорт базы данных:
 
-         -- phpMyAdmin SQL Dump
-        -- version 4.9.0.1
-        -- https://www.phpmyadmin.net/
-        -- Хост: 127.0.0.1:3306
-        -- Время создания: Фев 23 2020 г., 19:24
-        -- Версия сервера: 5.7.25
-        -- Версия PHP: 7.1.32
-        
+
         SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
         SET AUTOCOMMIT = 0;
         START TRANSACTION;
