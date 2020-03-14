@@ -97,10 +97,14 @@ class WorkController extends Controller
         if ($add_this->load(Yii::$app->request->post()) && $add_this->validate()) {
             $sql = "INSERT INTO `medicines` (`drug_name`, `description`, `price`, `img`) 
             VALUES ('" . $add_this->drug_name . "', '" . $add_this->description . "', '" . $add_this->price . "', '" . $add_this->img . "');";
+            $sql2 = "INSERT INTO `store_condition` (`num`, `drug_name`, `quantity`) 
+            VALUES ('1', '" . $add_this->drug_name . "', '0'), ('2', '" . $add_this->drug_name . "', '0')";
+            
             Yii::$app->db->createCommand($sql)->execute();
+            Yii::$app->db->createCommand($sql2)->execute();
             Yii::$app->session->setFlash('success', 'Данные успешно отправлены');
         } else {
-            Yii::$app->session->setFlash('error', 'Произошла ошибка! Попробуйте ввести данные заново.');
+            Yii::$app->session->setFlash('error', 'Введите данные правильно.');
         }
 
         return $this->render('addpreparat', compact('add_this'));
